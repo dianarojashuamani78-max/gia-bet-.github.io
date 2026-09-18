@@ -1,0 +1,1923 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Gina & Betsabé ❤️</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap');
+
+:root {
+  --wine: #64182b;
+  --wine-light: #8c2944;
+  --wine-dark: #4a101f;
+  --deep: #2b0712;
+  --rose: #a43d55;
+  --rose-soft: #f4e3e6;
+  --cream: #fffaf8;
+  --gold: #d9b47b;
+  --gold-light: #f3e5c8;
+}
+
+* { box-sizing: border-box; }
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--cream);
+  background-image: 
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800"><g fill="rgba(74,16,31,0.085)" font-family="Montserrat, sans-serif" font-weight="600"><text x="50" y="80" font-size="13" transform="rotate(-18 50,80)">churra</text><text x="320" y="60" font-size="12" font-family="Playfair Display, serif" font-style="italic" transform="rotate(12 320,60)">preciosa • mi persona favorita</text><text x="600" y="110" font-size="13" transform="rotate(-8 600,110)">mi futura psicóloga favorita</text><text x="120" y="240" font-size="14" font-family="Playfair Display, serif" font-style="italic" transform="rotate(15 120,240)">hermosa</text><text x="450" y="270" font-size="12" transform="rotate(-22 450,270)">el amor de mi vida</text><text x="680" y="230" font-size="13" transform="rotate(8 680,230)">mi cara de potito</text><text x="40" y="420" font-size="13" transform="rotate(-10 40,420)">mi renegona</text><text x="280" y="450" font-size="12" font-family="Playfair Display, serif" font-style="italic" transform="rotate(25 280,450)">sensible • loca</text><text x="580" y="410" font-size="13" transform="rotate(-15 580,410)">tienes en los ojos girasoles</text><text x="150" y="600" font-size="12" transform="rotate(-5 150,600)">te falta un tornillo</text><text x="420" y="620" font-size="14" font-family="Playfair Display, serif" transform="rotate(18 420,620)">oñoooo</text><text x="660" y="580" font-size="13" transform="rotate(-12 660,580)">potito</text><text x="80" y="740" font-size="13" transform="rotate(10 80,740)">mi lugar seguro</text><text x="520" y="750" font-size="12" font-family="Playfair Display, serif" font-style="italic" transform="rotate(-8 520,750)">juntas al infinito y más allá</text></g><g opacity="0.08"><path d="M 180 140 C 180 120, 195 105, 205 90 C 215 105, 230 120, 230 140 C 230 160, 205 170, 205 170 C 205 170, 180 160, 180 140 Z" fill="%23a43d55"/><path d="M 205 170 Q 205 210 200 230" stroke="%2364182b" stroke-width="2" fill="none"/><path d="M 200 200 Q 180 190 175 180 Q 190 195 200 200 Z" fill="%2364182b"/><circle cx="550" cy="180" r="18" fill="%23d9b47b"/><circle cx="550" cy="180" r="8" fill="%234a101f"/><g stroke="%23d9b47b" stroke-width="3" opacity="0.6"><line x1="550" y1="155" x2="550" y2="162"/><line x1="550" y1="198" x2="550" y2="205"/><line x1="525" y1="180" x2="532" y2="180"/><line x1="568" y1="180" x2="575" y2="180"/><line x1="532" y1="162" x2="537" y2="167"/><line x1="563" y1="193" x2="568" y2="198"/><line x1="532" y1="198" x2="537" y2="193"/><line x1="563" y1="167" x2="568" y2="162"/></g><path d="M 550 205 Q 550 240 555 260" stroke="%2364182b" stroke-width="2" fill="none"/><path d="M 350 510 C 350 490, 365 475, 375 460 C 385 475, 400 490, 400 510 C 400 530, 375 540, 375 540 C 375 540, 350 530, 350 510 Z" fill="%23a43d55"/><path d="M 375 540 Q 375 575 370 595" stroke="%2364182b" stroke-width="2" fill="none"/><circle cx="100" cy="500" r="16" fill="%23d9b47b"/><circle cx="100" cy="500" r="7" fill="%234a101f"/><path d="M 100 518 Q 100 550 105 570" stroke="%2364182b" stroke-width="2" fill="none"/></g></svg>'),
+    linear-gradient(to bottom, #fffaf8 0%, #fcedeb 100%);
+  background-attachment: fixed;
+  color: #35121c;
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Canvas Flotante */
+#particleCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 99;
+}
+
+/* --- Pantalla de Bloqueo --- */
+#loginOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999999;
+  background: radial-gradient(circle at 50% 35%, var(--wine-light) 0%, var(--wine) 40%, var(--deep) 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+}
+
+.login-card {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(217, 180, 123, 0.3);
+  padding: 35px 20px;
+  border-radius: 25px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.login-card h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 26px;
+  color: #fff;
+  margin: 0 0 10px 0;
+}
+
+.login-card p {
+  font-size: 14px;
+  color: var(--gold-light);
+  margin-bottom: 20px;
+}
+
+.login-input-group { margin-bottom: 15px; }
+
+.login-input-group input {
+  width: 100%;
+  padding: 15px;
+  border-radius: 30px;
+  border: 1px solid rgba(217, 180, 123, 0.5);
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.login-input-group input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.login-btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, var(--gold) 0%, #c49a5b 100%);
+  color: var(--deep);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.error-message { 
+  color: #ff9ebb; 
+  margin-top: 15px; 
+  font-size: 13px; 
+  display: none; 
+}
+
+#mainContent { display: none; }
+
+/* --- Hero Section --- */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+  background: radial-gradient(circle at 50% 35%, var(--wine-light) 0%, var(--wine) 40%, var(--deep) 100%);
+  color: white;
+  overflow: hidden;
+}
+
+.hero-content { max-width: 850px; position: relative; z-index: 2; }
+
+.hero-flower {
+  position: absolute;
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-flower.left {
+  top: 10%;
+  left: -30px;
+  width: 180px;
+  transform: rotate(-15deg);
+}
+
+.hero-flower.right {
+  bottom: 10%;
+  right: -30px;
+  width: 180px;
+  transform: rotate(165deg);
+}
+
+.small {
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-size: 13px;
+  color: var(--gold-light);
+  margin-bottom: 10px;
+}
+
+h1, h2, .quote { font-family: "Playfair Display", serif; }
+
+h1 {
+  font-size: clamp(40px, 8vw, 80px);
+  margin: 10px 0;
+  font-weight: 600;
+}
+
+.amp { color: var(--gold); font-family: 'Great Vibes', cursive; font-weight: normal; }
+
+.subtitle { font-size: clamp(16px, 2.5vw, 24px); font-style: italic; color: #f7e7e9; }
+
+/* Contador de Tiempo */
+.time-counter {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.time-box {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--gold);
+  border-radius: 12px;
+  padding: 10px 15px;
+  min-width: 70px;
+}
+
+.time-box .num {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--gold-light);
+  display: block;
+}
+
+.time-box .label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 30px;
+  border: 1px solid var(--gold);
+  border-radius: 30px;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.btn:hover { background: var(--gold); color: var(--deep); }
+
+section { padding: 60px 5%; max-width: 1200px; margin: auto; position: relative; }
+
+h2 {
+  text-align: center;
+  font-size: 34px;
+  color: var(--wine);
+  margin: 0 0 15px;
+}
+
+h2::after {
+  content: "🌻 🌷 🌻";
+  display: block;
+  font-size: 14px;
+  letter-spacing: 6px;
+  margin-top: 10px;
+  opacity: 0.8;
+}
+
+.lead {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 30px;
+  line-height: 1.8;
+  color: #5c353f;
+}
+
+/* --- Scratch Card (Rasca y Gana Dinámico) --- */
+.scratch-container {
+  max-width: 400px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.scratch-card-wrapper {
+  position: relative;
+  width: 320px;
+  height: 200px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  border: 2px solid var(--gold);
+}
+
+.scratch-secret {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--deep) 0%, var(--wine) 100%);
+  color: var(--gold-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+}
+
+#scratchCanvas {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  z-index: 2;
+  transition: opacity 0.4s ease;
+}
+
+.scratch-reset-btn {
+  margin-top: 15px;
+  padding: 8px 20px;
+  background: linear-gradient(135deg, var(--gold) 0%, #c49a5b 100%);
+  color: var(--deep);
+  border: none;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: transform 0.2s;
+}
+
+.scratch-reset-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* --- Mapa de Coordenadas --- */
+.map-card {
+  background: linear-gradient(135deg, var(--deep) 0%, var(--wine) 100%);
+  border: 2px solid var(--gold);
+  border-radius: 20px;
+  padding: 30px;
+  color: white;
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 40px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.star-map-graphic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  margin: 15px auto;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(217, 180, 123, 0.4);
+}
+
+.star-map-graphic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.map-preview-wrapper {
+  margin-top: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--gold);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.map-preview-wrapper iframe {
+  width: 100%;
+  height: 220px;
+  border: 0;
+  display: block;
+}
+
+.map-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, var(--gold) 0%, #c49a5b 100%);
+  color: var(--deep);
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+
+.map-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* --- Cápsula del Tiempo --- */
+.capsule-card {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  border: 1px solid var(--gold-light);
+  box-shadow: 0 10px 25px rgba(100, 24, 43, 0.06);
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.capsule-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--gold);
+  border-radius: 12px;
+  margin-bottom: 12px;
+  font-family: 'Montserrat', sans-serif;
+  outline: none;
+}
+
+.capsule-list {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.capsule-item {
+  background: var(--rose-soft);
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: var(--wine-dark);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* --- Layout Historia + Calendario --- */
+.history-calendar-layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 30px;
+  align-items: start;
+}
+
+/* --- Calendario Compacto --- */
+.calendar-card {
+  background: linear-gradient(135deg, var(--deep) 0%, var(--wine) 100%);
+  border: 2px solid var(--gold);
+  border-radius: 18px;
+  padding: 18px 15px;
+  color: white;
+  max-width: 360px;
+  width: 100%;
+  margin: 0 auto;
+  box-shadow: 0 10px 30px rgba(43, 7, 18, 0.15);
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(217, 180, 123, 0.2);
+}
+
+.calendar-month-year {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  color: var(--gold-light);
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.calendar-today-badge {
+  background: rgba(217, 180, 123, 0.2);
+  border: 1px solid var(--gold);
+  color: var(--gold-light);
+  padding: 3px 10px;
+  border-radius: 15px;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  text-align: center;
+}
+
+.calendar-day-name {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--gold);
+  padding-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.calendar-day {
+  padding: 6px 0;
+  font-size: 12px;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.85);
+  transition: all 0.3s ease;
+}
+
+.calendar-day.empty { visibility: hidden; }
+
+.calendar-day.today {
+  background: linear-gradient(135deg, var(--gold) 0%, #c49a5b 100%);
+  color: var(--deep);
+  font-weight: 700;
+  box-shadow: 0 3px 8px rgba(217, 180, 123, 0.4);
+  transform: scale(1.05);
+}
+
+/* --- Galería Ilustrada --- */
+.themed-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.theme-card {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid var(--gold-light);
+  box-shadow: 0 10px 25px rgba(100, 24, 43, 0.06);
+  transition: transform 0.3s ease;
+}
+
+.theme-card:hover { transform: translateY(-5px); }
+
+.theme-card svg {
+  width: 100%;
+  height: 180px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.theme-card h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--wine);
+  margin: 10px 0 5px;
+}
+
+.theme-card p {
+  font-size: 13px;
+  color: #666;
+  margin: 0;
+}
+
+/* --- Cartas Interactivas --- */
+.card {
+  background: rgba(255, 255, 255, 0.92);
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(100, 24, 43, 0.05);
+  border: 1px solid rgba(217, 180, 123, 0.3);
+  margin-bottom: 20px;
+}
+
+.date { color: var(--rose); font-weight: 600; letter-spacing: 2px; font-size: 13px; }
+
+/* --- FLIP CARD --- */
+.flip-card {
+  background-color: transparent;
+  perspective: 1000px;
+  height: 170px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  border-radius: 20px;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  inset: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(100, 24, 43, 0.1);
+}
+
+.flip-card-front {
+  background: linear-gradient(135deg, var(--deep) 0%, var(--wine) 100%);
+  border: 1px solid var(--gold);
+  color: white;
+}
+
+.flip-card-front .icon {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.flip-card-front h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: var(--gold-light);
+  margin: 0;
+}
+
+.flip-card-front p {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+.flip-card-back {
+  background: linear-gradient(135deg, #ffffff 0%, var(--rose-soft) 100%);
+  border: 1px solid var(--gold);
+  color: var(--wine);
+  transform: rotateY(180deg);
+}
+
+.flip-card-back .quote {
+  font-size: 16px;
+  line-height: 1.6;
+  font-style: italic;
+  margin: 0;
+}
+
+/* --- MARCOS ELEGANTES PARA FOTOS --- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 25px;
+}
+
+.photo-card {
+  position: relative;
+  background: #ffffff;
+  padding: 12px 12px 38px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(217, 180, 123, 0.5);
+  box-shadow: 0 12px 28px rgba(74, 16, 31, 0.12), inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.photo-card::before {
+  content: "❤️";
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.photo-card:hover {
+  transform: translateY(-8px) rotate(1deg);
+  box-shadow: 0 20px 35px rgba(74, 16, 31, 0.22), 0 0 15px rgba(217, 180, 123, 0.3);
+  border-color: var(--gold);
+}
+
+.photo-card-img-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.15);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(43, 7, 18, 0.75);
+  color: var(--gold-light);
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(217, 180, 123, 0.4);
+}
+
+/* --- MARCOS ELEGANTES PARA VIDEOS --- */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.video-card {
+  background: linear-gradient(135deg, #2b0712 0%, #4a101f 100%);
+  border-radius: 16px;
+  padding: 10px;
+  position: relative;
+  box-shadow: 0 12px 28px rgba(43, 7, 18, 0.25);
+  border: 2px solid var(--gold);
+  cursor: pointer;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.video-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 38px rgba(43, 7, 18, 0.4), 0 0 20px rgba(217, 180, 123, 0.3);
+}
+
+.video-container {
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(217, 180, 123, 0.3);
+  background: #000;
+}
+
+.video-container video {
+  width: 100%;
+  display: block;
+  max-height: 280px;
+  object-fit: cover;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(43, 7, 18, 0.85);
+  color: white;
+  border: 1px solid rgba(217, 180, 123, 0.5);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.delete-btn:hover {
+  background: var(--wine-light);
+}
+
+/* --- Lightbox Visualizador Fullscreen --- */
+.media-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999999;
+  background: rgba(15, 3, 7, 0.92);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.media-lightbox.active {
+  display: flex;
+  opacity: 1;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 900px;
+  max-height: 85vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-content img, .lightbox-content video {
+  max-width: 100%;
+  max-height: 70vh;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+  border: 1px solid var(--gold);
+  object-fit: contain;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -45px;
+  right: 0;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: 1px solid var(--gold);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-caption {
+  margin-top: 15px;
+  color: var(--gold-light);
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  text-align: center;
+  font-style: italic;
+}
+
+/* --- Sobre Romántico Interactivo --- */
+.envelope-wrapper {
+  max-width: 750px;
+  margin: 0 auto;
+  perspective: 1000px;
+}
+
+.envelope-card {
+  background: linear-gradient(135deg, var(--deep) 0%, var(--wine) 100%);
+  border: 2px solid var(--gold);
+  border-radius: 24px;
+  padding: 40px 30px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(43, 7, 18, 0.2);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease;
+}
+
+.envelope-card:hover { transform: translateY(-4px); }
+
+.wax-seal {
+  width: 70px;
+  height: 70px;
+  background: radial-gradient(circle, var(--wine-light) 0%, var(--wine) 100%);
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.letter-content {
+  display: none;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid var(--gold);
+  padding: 40px 30px;
+  border-radius: 20px;
+  margin-top: 20px;
+  text-align: left;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.letter-content p {
+  line-height: 1.9;
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  color: #2c1219;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.uploads { text-align: center; margin-top: 20px; }
+input[type=file] { display: none; }
+
+.upload-label, .action-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--gold) 0%, #c49a5b 100%);
+  color: var(--deep);
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.2s ease;
+}
+
+.upload-label:hover, .action-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Reproductor Vinilo Personalizado */
+.music-card {
+  background: linear-gradient(135deg, var(--deep) 0%, var(--wine) 100%);
+  color: white;
+  border-radius: 24px;
+  padding: 30px;
+  border: 2px solid var(--gold);
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.vinyl-container {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #111 30%, #333 31%, #111 32%, #222 65%, #000 70%);
+  border: 3px solid var(--gold);
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  animation: spinVinyl 6s linear infinite;
+  animation-play-state: paused;
+}
+
+.vinyl-center {
+  width: 45px;
+  height: 45px;
+  background: var(--wine);
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+@keyframes spinVinyl {
+  100% { transform: rotate(360deg); }
+}
+
+footer {
+  background: var(--deep);
+  color: #ead5d6;
+  text-align: center;
+  padding: 30px 15px;
+  font-family: "Playfair Display", serif;
+}
+
+@media(max-width: 850px) {
+  .history-calendar-layout { grid-template-columns: 1fr; }
+  .letter-content { padding: 25px 18px; }
+  .hero-flower { display: none; }
+}
+</style>
+</head>
+<body>
+
+<canvas id="particleCanvas"></canvas>
+
+<!-- Pantalla de Login -->
+<div id="loginOverlay">
+  <div class="login-card">
+    <h2>Feliz 5to mes, te amo churra</h2>
+    <p>Ingresa la contraseña para acceder ❤️</p>
+    
+    <form id="loginForm" onsubmit="return validateAndUnlock(event)">
+      <div class="login-input-group">
+        <input type="password" id="passwordInput" placeholder="Escribe la contraseña..." autocomplete="off" required>
+      </div>
+      <button type="submit" class="login-btn">Ingresar</button>
+    </form>
+
+    <div class="error-message" id="errorMessage">Contraseña incorrecta. ¡Inténtalo de nuevo, mi amor!</div>
+  </div>
+</div>
+
+<!-- Lightbox Visualizador Fullscreen -->
+<div class="media-lightbox" id="mediaLightbox" onclick="closeLightbox(event)">
+  <div class="lightbox-content" onclick="event.stopPropagation()">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <div id="lightboxMediaContainer"></div>
+    <div class="lightbox-caption" id="lightboxCaption">Recordando momentos juntas ✨</div>
+  </div>
+</div>
+
+<!-- Contenido Principal -->
+<div id="mainContent">
+  <header class="hero">
+    <svg class="hero-flower left" viewBox="0 0 100 200" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 50 180 Q 30 120 50 60" stroke="#d9b47b" stroke-width="3" fill="none"/>
+      <circle cx="50" cy="50" r="22" fill="#d9b47b"/>
+      <circle cx="50" cy="50" r="10" fill="#4a101f"/>
+      <path d="M 50 140 C 20 120, 20 100, 48 115 Z" fill="#a43d55"/>
+      <path d="M 20 190 C 20 170, 35 155, 45 140 C 55 155, 70 170, 70 190 Z" fill="#f4e3e6"/>
+    </svg>
+    <svg class="hero-flower right" viewBox="0 0 100 200" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 50 180 Q 30 120 50 60" stroke="#d9b47b" stroke-width="3" fill="none"/>
+      <circle cx="50" cy="50" r="22" fill="#d9b47b"/>
+      <circle cx="50" cy="50" r="10" fill="#4a101f"/>
+      <path d="M 50 140 C 20 120, 20 100, 48 115 Z" fill="#a43d55"/>
+      <path d="M 20 190 C 20 170, 35 155, 45 140 C 55 155, 70 170, 70 190 Z" fill="#f4e3e6"/>
+    </svg>
+
+    <div class="hero-content">
+      <div class="small">Una historia que elegimos cada día</div>
+      <h1>Gina <span class="amp">&</span> Betsabé</h1>
+      <div class="subtitle">“Si pudiera elegir de nuevo, volvería a elegirte.”</div>
+      
+      <!-- Contador de días -->
+      <div class="time-counter">
+        <div class="time-box"><span class="num" id="daysNum">0</span><span class="label">Días</span></div>
+        <div class="time-box"><span class="num" id="hoursNum">0</span><span class="label">Horas</span></div>
+        <div class="time-box"><span class="num" id="minsNum">0</span><span class="label">Minutos</span></div>
+      </div>
+
+      <a class="btn" href="#historia">Nuestra historia ↓</a>
+    </div>
+  </header>
+
+  <!-- MAPA DE COORDENADAS / ESTRELLAS -->
+  <section>
+    <h2>Donde las Estrellas Coincidieron 🌌</h2>
+    <p class="lead">El lugar exacto y el universo bajo el cual nació lo nuestro.</p>
+    
+    <div class="map-card">
+      <div class="star-map-graphic">
+        <img src="https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?auto=format&fit=crop&w=400&q=80" alt="Cielo estrellado">
+      </div>
+      <h3 style="font-family:'Playfair Display'; font-size:24px; color: var(--gold-light); margin:5px 0;">Nuestro Lugar Especial</h3>
+      <p style="color: rgba(255,255,255,0.8); font-size:14px; margin-bottom: 15px;">Coordenadas de nuestro primer encuentro favorito</p>
+      <div style="font-family: monospace; font-size: 16px; background: rgba(0,0,0,0.3); padding: 10px; border-radius: 10px; border: 1px solid var(--gold);">
+        📍 -12.068105, -77.0436659
+      </div>
+
+      <!-- Vista previa del Mapa Interactivo -->
+      <div class="map-preview-wrapper">
+        <iframe 
+          src="https://maps.google.com/maps?q=-12.068105,-77.0436659&z=16&output=embed" 
+          allowfullscreen="" 
+          loading="lazy">
+        </iframe>
+      </div>
+      <a href="https://www.google.com/maps/search/?api=1&query=-12.068105,-77.0436659" target="_blank" class="map-btn">
+        Abrir en Google Maps 🗺️
+      </a>
+    </div>
+  </section>
+
+  <!-- RASCA Y GANA ROMÁNTICO -->
+  <section>
+    <h2>Raspa para Revelar 🎨</h2>
+    <p class="lead">Usa el mouse o el dedo sobre la tarjeta dorada para descubrir un mensaje. ¡Puedes raspar varias veces!</p>
+    
+    <div class="scratch-container">
+      <div class="scratch-card-wrapper">
+        <div class="scratch-secret" id="scratchSecret">
+          <span style="font-size: 30px;" id="scratchIcon">🌻❤️</span>
+          <h3 id="scratchTitle">¡Promesa de Amor!</h3>
+          <p style="font-size: 13px;" id="scratchText">"Prometo estar siempre a tu lado, cuidando de ti y de tus sueños."</p>
+        </div>
+        <canvas id="scratchCanvas" width="320" height="200"></canvas>
+      </div>
+      <button class="scratch-reset-btn" id="scratchResetBtn" onclick="resetScratchCard()" style="display:none;">Raspar otra vez 🔄</button>
+    </div>
+  </section>
+
+  <!-- GALERÍA ILUSTRADA DE PERSONAJES -->
+  <section>
+    <h2>Un toque de magia & aventura 🎨</h2>
+    <p class="lead">Nuestros personajes favoritos decorando este rincón especial.</p>
+    
+    <div class="themed-gallery">
+      <!-- Snoopy -->
+      <div class="theme-card">
+        <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+          <rect width="300" height="200" fill="#2b0712" rx="12"/>
+          <circle cx="150" cy="90" r="45" fill="#f4e3e6"/>
+          <ellipse cx="140" cy="75" rx="5" ry="8" fill="#2b0712"/>
+          <ellipse cx="170" cy="75" rx="5" ry="8" fill="#2b0712"/>
+          <path d="M 125 105 Q 150 125 175 105" stroke="#64182b" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <circle cx="150" cy="92" r="7" fill="#64182b"/>
+          <path d="M 120 70 Q 105 85 115 110" stroke="#64182b" stroke-width="8" fill="none" stroke-linecap="round"/>
+          <path d="M 180 70 Q 195 85 185 110" stroke="#64182b" stroke-width="8" fill="none" stroke-linecap="round"/>
+          <path d="M 150 140 L 160 160 L 140 160 Z" fill="#d9b47b"/>
+          <text x="150" y="185" text-anchor="middle" fill="#d9b47b" font-family="Playfair Display" font-size="14" font-weight="bold">SNOOPY CLASSIC</text>
+        </svg>
+        <h3>El Amor de Snoopy</h3>
+        <p>Calidez, abrazos y lealtad incondicional.</p>
+      </div>
+
+      <!-- Escuadrón Suicida -->
+      <div class="theme-card">
+        <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+          <rect width="300" height="200" fill="#1f0813" rx="12"/>
+          <path d="M 110 50 Q 150 20 190 50 Q 210 110 150 160 Q 90 110 110 50 Z" fill="none" stroke="#d9b47b" stroke-width="3"/>
+          <text x="130" y="105" fill="#a43d55" font-family="Montserrat" font-size="32" font-weight="bold">X</text>
+          <text x="155" y="105" fill="#d9b47b" font-family="Montserrat" font-size="32" font-weight="bold">O</text>
+          <path d="M 80 140 L 220 140" stroke="#a43d55" stroke-width="3" stroke-dasharray="6,6"/>
+          <text x="150" y="175" text-anchor="middle" fill="#d9b47b" font-family="Playfair Display" font-size="14" font-weight="bold">SUICIDE SQUAD VIBE</text>
+        </svg>
+        <h3>Escuadrón Suicida</h3>
+        <p>Cómplices en el caos y el amor verdadero.</p>
+      </div>
+
+      <!-- Toy Story -->
+      <div class="theme-card">
+        <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+          <rect width="300" height="200" fill="#64182b" rx="12"/>
+          <polygon points="150,40 163,80 205,80 171,105 184,145 150,120 116,145 129,105 95,80 137,80" fill="#d9b47b"/>
+          <circle cx="150" cy="92" r="15" fill="#64182b"/>
+          <text x="150" y="97" text-anchor="middle" fill="#f3e5c8" font-family="Montserrat" font-size="14" font-weight="bold">∞</text>
+          <text x="150" y="175" text-anchor="middle" fill="#f3e5c8" font-family="Playfair Display" font-size="14" font-weight="bold">AL INFINITO Y MÁS ALLÁ</text>
+        </svg>
+        <h3>Toy Story</h3>
+        <p>Al infinito y más allá, siempre juntas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HISTORIA Y CALENDARIO COMPACTO -->
+  <section id="historia">
+    <h2>Nuestra Historia & Cada Día Juntas</h2>
+    <p class="lead">El recuerdo de nuestro inicio al lado del día que vivimos hoy.</p>
+    
+    <div class="history-calendar-layout">
+      <div>
+        <div class="card">
+          <div class="date">18 · ABRIL · 2026</div>
+          <h3 style="font-family:'Playfair Display';font-size:22px;color:var(--wine);margin-top:5px">El día que comenzó nuestra historia</h3>
+          <p style="line-height:1.7;color:#4a232c">Desde aquel día empezó una historia que quiero seguir escribiendo contigo: con risas, abrazos, pequeños detalles y aventuras que hacen que lo nuestro sea único.</p>
+        </div>
+
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="icon">✨</div>
+              <h3>Toca para revelar</h3>
+              <p>Un pensamiento especial para ti</p>
+            </div>
+            <div class="flip-card-back">
+              <div class="quote">“No necesito una historia perfecta. Solo quiero una historia en la que podamos seguir eligiéndonos.”</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="calendar-card">
+          <div class="calendar-header">
+            <div class="calendar-month-year" id="calendarMonthYear"></div>
+            <div class="calendar-today-badge" id="calendarTodayBadge">Hoy ❤️</div>
+          </div>
+          <div class="calendar-grid" id="calendarGrid">
+            <div class="calendar-day-name">Dom</div>
+            <div class="calendar-day-name">Lun</div>
+            <div class="calendar-day-name">Mar</div>
+            <div class="calendar-day-name">Mié</div>
+            <div class="calendar-day-name">Jue</div>
+            <div class="calendar-day-name">Vie</div>
+            <div class="calendar-day-name">Sáb</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CÁPSULA DEL TIEMPO / METAS FUTURAS -->
+  <section>
+    <h2>Cápsula del Tiempo & Sueños Juntas 🎈</h2>
+    <p class="lead">Escribe un deseo o meta para el futuro. Quedará guardado en este rincón.</p>
+    
+    <div class="capsule-card">
+      <input type="text" class="capsule-input" id="capsuleInput" placeholder="Ej: Viajar juntas a la playa, ver la película...">
+      <button type="button" class="action-btn" onclick="addCapsuleGoal()">Guardar en la Cápsula ✨</button>
+
+      <div class="capsule-list" id="capsuleList"></div>
+    </div>
+  </section>
+
+  <!-- GALERÍA DE FOTOS INTERACTIVA -->
+  <section>
+    <h2>Nuestros recuerdos 📸</h2>
+    <p class="lead">Haz clic o toca cualquier imagen para ampliarla en alta definición.</p>
+    
+    <div class="gallery" id="photoGallery"></div>
+    
+    <div class="uploads">
+      <label class="upload-label" for="photos">✨ Agregar fotos</label>
+      <input id="photos" type="file" accept="image/*" multiple>
+    </div>
+  </section>
+
+  <!-- GALERÍA DE VIDEOS INTERACTIVA -->
+  <section>
+    <h2>Momentos en movimiento 🎬</h2>
+    <p class="lead">Toca cualquier video para reproducirlo a pantalla completa.</p>
+
+    <div class="video-grid" id="videoGallery"></div>
+    
+    <div class="uploads">
+      <label class="upload-label" for="videos">🎬 Agregar videos</label>
+      <input id="videos" type="file" accept="video/*" multiple>
+    </div>
+  </section>
+
+  <!-- CARTA ROMÁNTICA RENOVADA (SOBRE INTERACTIVO) -->
+  <section>
+    <h2>Para Betsabé, la luz de mi vida 💌</h2>
+    <p class="lead">Presiona el sello para abrir la carta secreta.</p>
+    
+    <div class="envelope-wrapper">
+      <div class="envelope-card" id="envelopeCard" onclick="openLetter()">
+        <div class="wax-seal">🧠❤️</div>
+        <h3 style="color: var(--gold); font-family: 'Playfair Display'; margin: 0 0 5px;">Para la persona más increíble</h3>
+        <p style="color: var(--gold-light); font-size: 14px; margin: 0;">Presiona para romper el sello y leer mi corazón...</p>
+        
+        <div class="letter-content" id="letterContent" onclick="event.stopPropagation()">
+          <p>Mi amor:</p>
+          <p>Quiero que sepas lo importante que eres para mí. Hemos pasado por tantas cosas para llegar hasta aquí, y cuando miro todo lo que hemos vivido, me me doy cuenta de cuánto significas para mí.</p>
+          <p>Hubo un momento en el que sentí que casi te perdía, que casi nos perdíamos, y ese sentimiento es algo que nunca más en mi vida deseo volver a sentir. Me hizo entender cuánto te amo y cuánto deseo cuidar lo nuestro. No quiero dar por sentado tu amor ni nuestra relación; quiero aprender a amarte cada día mejor, entenderte, escucharte, tener paciencia contigo y demostrarte con hechos todo lo que siento.</p>
+          <p>Me llena de un orgullo gigante ver cómo te esfuerzas y con cuánta empatía y dedicación te formas cada día. No tengo ni la menor duda de que vas a ser la mejor psicóloga del mundo. Tu sensibilidad para entender el alma humana y la luz que transmites sanan incluso antes de hablar. Sé que vas a transformar muchísimas vidas, tal como transformaste la mía desde el primer día. Y quiero estar ahí para verte cumplir cada uno de tus sueños, acompañarte en cada logro y recordarte siempre lo increíble que eres.</p>
+          <p>Sé que no somos perfectos y que todavía tenemos mucho por aprender, pero quiero hacerlo contigo. Quiero seguir creciendo a tu lado, superar juntos lo que venga y disfrutar de cada momento que podamos compartir.</p>
+          <p>En serio, churra, te amo demasiado. ❤️ A veces siento que las palabras no me alcanzan para explicarte todo lo que hay en mi corazón, pero quiero que nunca dudes de lo mucho que significas para mí.</p>
+          <p>Después de todo lo que hemos pasado, solo quiero seguir eligiéndote, cuidándote y construyendo nuestra historia contigo. Porque si algo tengo claro, es que no quiero volver a imaginar una vida en la que tú no estés.</p>
+          <p>Te amo muchísimo, churra. Y deseo de corazón que podamos seguir encontrándonos, incluso en los momentos difíciles.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REPRODUCTOR VINILO PERSONALIZADO -->
+  <section>
+    <h2>Nuestra Canción 🎵</h2>
+    <div class="music-card">
+      <div class="vinyl-container" id="vinylDisc">
+        <div class="vinyl-center">🎶</div>
+      </div>
+      <h3 style="font-family:'Playfair Display'; font-size:24px; margin:0;">En un solo día</h3>
+      <p style="color: var(--gold); font-size: 14px; margin-top: 5px; margin-bottom: 20px;">Morat</p>
+      
+      <label class="upload-label" for="audio">🎵 Cargar archivo audio</label>
+      <input id="audio" type="file" accept="audio/*">
+      <div id="player" style="margin-top:15px"></div>
+    </div>
+  </section>
+
+  <footer>
+    Hecha con amor para Betsabé 🌹<br>
+    <small style="font-family:'Montserrat';font-size:11px;opacity:.7;display:block;margin-top:8px">Gina & Betsabé · desde el 18 de abril de 2026</small>
+  </footer>
+</div>
+
+<!-- Firebase: almacenamiento y sincronización entre dispositivos -->
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-storage-compat.js"></script>
+<script src="./firebase-config.js"></script>
+<script>
+function cleanText(str) {
+  if (!str) return '';
+  return str.toString().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+}
+
+function updateCounter() {
+  const startDate = new Date("2026-04-18T00:00:00");
+  const now = new Date();
+  const diff = now - startDate;
+
+  if (diff > 0) {
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const mins = Math.floor((diff / 1000 / 60) % 60);
+
+    document.getElementById("daysNum").textContent = days;
+    document.getElementById("hoursNum").textContent = hours;
+    document.getElementById("minsNum").textContent = mins;
+  }
+}
+
+function validateAndUnlock(e) {
+  if (e) e.preventDefault();
+
+  const inputVal = document.getElementById("passwordInput").value;
+  const targetVal = "El que quiere lo hace";
+  const overlay = document.getElementById("loginOverlay");
+  const main = document.getElementById("mainContent");
+  const errorMsg = document.getElementById("errorMessage");
+
+  if (cleanText(inputVal) === cleanText(targetVal)) {
+    main.style.display = "block";
+    if (overlay) overlay.parentNode.removeChild(overlay);
+    renderCalendar();
+    updateCounter();
+    initParticles();
+    initScratchCard();
+    loadCapsuleGoals();
+    setInterval(updateCounter, 60000);
+    setTimeout(initIndexedDB, 100);
+  } else {
+    errorMsg.style.display = "block";
+  }
+
+  return false;
+}
+
+function renderCalendar() {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = today.getMonth();
+  const currentDate = today.getDate();
+
+  const monthNames = [
+    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+  ];
+
+  document.getElementById("calendarMonthYear").textContent = `${monthNames[month]} ${year}`;
+  document.getElementById("calendarTodayBadge").textContent = `${currentDate} de ${monthNames[month]}`;
+
+  const firstDayIndex = new Date(year, month, 1).getDay();
+  const totalDays = new Date(year, month + 1, 0).getDate();
+  const grid = document.getElementById("calendarGrid");
+
+  const dayNamesHTML = `
+    <div class="calendar-day-name">Dom</div>
+    <div class="calendar-day-name">Lun</div>
+    <div class="calendar-day-name">Mar</div>
+    <div class="calendar-day-name">Mié</div>
+    <div class="calendar-day-name">Jue</div>
+    <div class="calendar-day-name">Vie</div>
+    <div class="calendar-day-name">Sáb</div>
+  `;
+  grid.innerHTML = dayNamesHTML;
+
+  for (let i = 0; i < firstDayIndex; i++) {
+    const emptyDiv = document.createElement("div");
+    emptyDiv.className = "calendar-day empty";
+    grid.appendChild(emptyDiv);
+  }
+
+  for (let day = 1; day <= totalDays; day++) {
+    const dayDiv = document.createElement("div");
+    dayDiv.className = "calendar-day";
+    dayDiv.textContent = day;
+
+    if (day === currentDate) {
+      dayDiv.classList.add("today");
+    }
+
+    grid.appendChild(dayDiv);
+  }
+}
+
+/* --- ANIMACIÓN DE PARTÍCULAS --- */
+function initParticles() {
+  const canvas = document.getElementById('particleCanvas');
+  const ctx = canvas.getContext('2d');
+  let width = canvas.width = window.innerWidth;
+  let height = canvas.height = window.innerHeight;
+
+  window.addEventListener('resize', () => {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  });
+
+  const particles = [];
+  const items = ['🌻', '🌷', '❤️', '✨'];
+
+  for (let i = 0; i < 25; i++) {
+    particles.push({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      size: Math.random() * 15 + 12,
+      speedY: Math.random() * 1 + 0.5,
+      symbol: items[Math.floor(Math.random() * items.length)],
+      opacity: Math.random() * 0.5 + 0.3
+    });
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, width, height);
+    particles.forEach(p => {
+      p.y += p.speedY;
+      if (p.y > height) p.y = -20;
+      ctx.globalAlpha = p.opacity;
+      ctx.font = `${p.size}px serif`;
+      ctx.fillText(p.symbol, p.x, p.y);
+    });
+    requestAnimationFrame(animate);
+  }
+  animate();
+}
+
+/* --- RASCA Y GANA DINÁMICO --- */
+const scratchMessages = [
+  { icon: "🌻❤️", title: "¡Promesa de Amor!", text: "Prometo estar siempre a tu lado, cuidando de ti y de tus sueños." },
+  { icon: "✨👩‍⚕️", title: "Orgullo Absoluto", text: "Vas a ser la mejor psicóloga del mundo. Admiro tu hermosa empatía." },
+  { icon: "🚀💫", title: "Al Infinito", text: "Juntas hasta donde las estrellas dejen de brillar." },
+  { icon: "💌🥰", title: "Mi Lugar Seguro", text: "En tus abrazos encuentro la tranquilidad más linda de mi vida." },
+  { icon: "🎉💖", title: "Feliz 5to Mes", text: "Gracias por elegirme un día más. ¡Te amo con todo mi ser!" }
+];
+
+let lastScratchIndex = 0;
+
+function drawScratchCover(canvas, ctx) {
+  ctx.globalCompositeOperation = 'source-over';
+  ctx.fillStyle = '#d9b47b';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  
+  ctx.fillStyle = '#64182b';
+  ctx.font = 'bold 16px Montserrat';
+  ctx.textAlign = 'center';
+  ctx.fillText('✨ Raspa aquí con tu dedo ✨', canvas.width / 2, canvas.height / 2);
+}
+
+function initScratchCard() {
+  const canvas = document.getElementById('scratchCanvas');
+  const ctx = canvas.getContext('2d');
+  
+  drawScratchCover(canvas, ctx);
+
+  let isDrawing = false;
+
+  function scratch(e) {
+    if (!isDrawing) return;
+    const rect = canvas.getBoundingClientRect();
+    const x = (e.clientX || (e.touches && e.touches[0].clientX)) - rect.left;
+    const y = (e.clientY || (e.touches && e.touches[0].clientY)) - rect.top;
+
+    ctx.globalCompositeOperation = 'destination-out';
+    ctx.beginPath();
+    ctx.arc(x, y, 20, 0, Math.PI * 2);
+    ctx.fill();
+
+    checkScratchCompletion(canvas, ctx);
+  }
+
+  canvas.addEventListener('mousedown', () => isDrawing = true);
+  canvas.addEventListener('mouseup', () => isDrawing = false);
+  canvas.addEventListener('mousemove', scratch);
+
+  canvas.addEventListener('touchstart', () => isDrawing = true);
+  canvas.addEventListener('touchend', () => isDrawing = false);
+  canvas.addEventListener('touchmove', scratch);
+}
+
+function checkScratchCompletion(canvas, ctx) {
+  const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  const pixels = imgData.data;
+  let transparentCount = 0;
+
+  for (let i = 3; i < pixels.length; i += 4) {
+    if (pixels[i] === 0) {
+      transparentCount++;
+    }
+  }
+
+  const percent = (transparentCount / (canvas.width * canvas.height)) * 100;
+  if (percent > 40) {
+    document.getElementById('scratchResetBtn').style.display = 'inline-block';
+  }
+}
+
+function resetScratchCard() {
+  const canvas = document.getElementById('scratchCanvas');
+  const ctx = canvas.getContext('2d');
+  
+  let nextIndex;
+  do {
+    nextIndex = Math.floor(Math.random() * scratchMessages.length);
+  } while (nextIndex === lastScratchIndex && scratchMessages.length > 1);
+  
+  lastScratchIndex = nextIndex;
+  const msg = scratchMessages[nextIndex];
+
+  document.getElementById('scratchIcon').textContent = msg.icon;
+  document.getElementById('scratchTitle').textContent = msg.title;
+  document.getElementById('scratchText').textContent = `"${msg.text}"`;
+
+  drawScratchCover(canvas, ctx);
+  document.getElementById('scratchResetBtn').style.display = 'none';
+}
+
+/* --- CÁPSULA DEL TIEMPO --- */
+function addCapsuleGoal() {
+  const input = document.getElementById('capsuleInput');
+  const val = input.value.trim();
+  if (!val) return;
+
+  const goals = JSON.parse(localStorage.getItem('gb_capsule_goals') || '[]');
+  goals.push(val);
+  localStorage.setItem('gb_capsule_goals', JSON.stringify(goals));
+  input.value = '';
+  loadCapsuleGoals();
+}
+
+function loadCapsuleGoals() {
+  const list = document.getElementById('capsuleList');
+  const goals = JSON.parse(localStorage.getItem('gb_capsule_goals') || '[]');
+  list.innerHTML = '';
+  goals.forEach((goal, idx) => {
+    const item = document.createElement('div');
+    item.className = 'capsule-item';
+    item.innerHTML = `<span>✨ ${goal}</span> <small style="cursor:pointer; opacity:0.6" onclick="removeCapsuleGoal(${idx})">✕</small>`;
+    list.appendChild(item);
+  });
+}
+
+function removeCapsuleGoal(idx) {
+  const goals = JSON.parse(localStorage.getItem('gb_capsule_goals') || '[]');
+  goals.splice(idx, 1);
+  localStorage.setItem('gb_capsule_goals', JSON.stringify(goals));
+  loadCapsuleGoals();
+}
+
+function openLightbox(mediaSrc, isVideo, caption = "Nuestros momentos especiales ✨") {
+  const lightbox = document.getElementById('mediaLightbox');
+  const container = document.getElementById('lightboxMediaContainer');
+  const captionEl = document.getElementById('lightboxCaption');
+
+  container.innerHTML = '';
+  captionEl.textContent = caption;
+
+  if (isVideo) {
+    const video = document.createElement('video');
+    video.src = mediaSrc;
+    video.controls = true;
+    video.autoplay = true;
+    container.appendChild(video);
+  } else {
+    const img = document.createElement('img');
+    img.src = mediaSrc;
+    container.appendChild(img);
+  }
+
+  lightbox.classList.add('active');
+}
+
+function closeLightbox(e) {
+  if (e) e.stopPropagation();
+  const lightbox = document.getElementById('mediaLightbox');
+  const container = document.getElementById('lightboxMediaContainer');
+  lightbox.classList.remove('active');
+  setTimeout(() => { container.innerHTML = ''; }, 300);
+}
+
+function openLetter() {
+  const content = document.getElementById('letterContent');
+  if (content.style.display === 'block') {
+    content.style.display = 'none';
+  } else {
+    content.style.display = 'block';
+  }
+}
+
+
+/* ============================================================
+   GALERÍA COMPARTIDA EN LA NUBE
+   - Fotos, videos y audio se guardan en Firebase Storage.
+   - Sus registros se guardan en Firestore.
+   - onSnapshot mantiene todos los dispositivos actualizados.
+   - Si Firebase aún no está configurado, se usa IndexedDB local
+     como respaldo para no romper la aplicación.
+   ============================================================ */
+
+let cloudReady = false;
+let cloudDb = null;
+let cloudStorage = null;
+let currentMediaUnsubscribe = null;
+const localDbName = "GinaBetsabeDB";
+let localDb = null;
+
+function isFirebaseConfigured() {
+  return window.GINA_BETSABE_FIREBASE_CONFIG &&
+         window.GINA_BETSABE_FIREBASE_CONFIG.apiKey &&
+         window.GINA_BETSABE_FIREBASE_CONFIG.projectId &&
+         !String(window.GINA_BETSABE_FIREBASE_CONFIG.apiKey).startsWith("TU_") &&
+         window.GINA_BETSABE_FIREBASE_CONFIG.projectId !== "tu-proyecto";
+}
+
+async function initCloudStorage() {
+  if (!isFirebaseConfigured()) {
+    console.warn("Firebase aún no está configurado. Se usará almacenamiento local.");
+    initLocalStorage();
+    return;
+  }
+
+  try {
+    if (!firebase.apps.length) {
+      firebase.initializeApp(window.GINA_BETSABE_FIREBASE_CONFIG);
+    }
+
+    cloudDb = firebase.firestore();
+    cloudStorage = firebase.storage();
+
+    // Anonymous Auth permite que cualquier dispositivo autorizado por las reglas
+    // tenga una identidad técnica sin pedir correo/contraseña.
+    await firebase.auth().signInAnonymously();
+
+    cloudReady = true;
+    subscribeSharedGallery();
+  } catch (error) {
+    console.error("Firebase no pudo inicializarse:", error);
+    alert("No se pudo conectar con la nube. Se conservará el funcionamiento local hasta configurar Firebase.");
+    initLocalStorage();
+  }
+}
+
+function subscribeSharedGallery() {
+  if (!cloudReady || !cloudDb) return;
+
+  if (currentMediaUnsubscribe) currentMediaUnsubscribe();
+
+  currentMediaUnsubscribe = cloudDb.collection("shared_gallery")
+    .orderBy("createdAt", "desc")
+    .onSnapshot(
+      snapshot => {
+        document.getElementById("photoGallery").innerHTML = "";
+        document.getElementById("videoGallery").innerHTML = "";
+        document.getElementById("player").innerHTML = "";
+
+        snapshot.forEach(doc => {
+          const data = doc.data();
+          renderCloudMediaItem(data.type, data.url, data.createdAt, doc.id, data.name || "");
+        });
+      },
+      error => {
+        console.error("No se pudo sincronizar la galería:", error);
+      }
+    );
+}
+
+async function saveMedia(type, file) {
+  if (!file) return;
+
+  if (!cloudReady) {
+    saveMediaLocal(type, file);
+    return;
+  }
+
+  const safeName = (file.name || "archivo").replace(/[^\w.\- áéíóúÁÉÍÓÚñÑ]/g, "_");
+  const path = `gallery/${Date.now()}_${Math.random().toString(36).slice(2)}_${safeName}`;
+
+  try {
+    setUploadStatus(`Subiendo ${type === "image" ? "foto" : type === "video" ? "video" : "audio"}...`);
+
+    const storageRef = cloudStorage.ref(path);
+    const snapshot = await storageRef.put(file, {
+      contentType: file.type || undefined,
+      customMetadata: { originalName: file.name || "" }
+    });
+
+    const url = await snapshot.ref.getDownloadURL();
+
+    await cloudDb.collection("shared_gallery").add({
+      url,
+      path,
+      type,
+      name: file.name || "",
+      mime: file.type || "",
+      createdAt: firebase.firestore.FieldValue.serverTimestamp()
+    });
+
+    setUploadStatus("");
+  } catch (error) {
+    console.error("Error al guardar en la nube:", error);
+    setUploadStatus("");
+    alert("No se pudo guardar el archivo en la nube: " + (error.message || error));
+  }
+}
+
+async function removeMedia(id, element, path) {
+  if (!cloudReady) {
+    removeMediaLocal(id, element);
+    return;
+  }
+
+  try {
+    await cloudDb.collection("shared_gallery").doc(id).delete();
+    if (path) {
+      await cloudStorage.ref(path).delete().catch(() => {});
+    }
+    if (element) element.remove();
+  } catch (error) {
+    console.error("No se pudo eliminar el recuerdo:", error);
+    alert("No se pudo eliminar este recuerdo.");
+  }
+}
+
+function renderCloudMediaItem(type, url, timestamp, id, name) {
+  const isImage = type === "image";
+  const isVideo = type === "video";
+
+  if (type === "audio") {
+    renderCloudAudioPlayer(url);
+    return;
+  }
+
+  const gallery = document.getElementById(isImage ? "photoGallery" : "videoGallery");
+  if (!gallery) return;
+
+  const box = document.createElement("div");
+  box.className = isImage ? "photo-card" : "video-card";
+
+  const deleteBtn = document.createElement("button");
+  deleteBtn.className = "delete-btn";
+  deleteBtn.innerHTML = "×";
+  deleteBtn.title = "Eliminar este recuerdo";
+  deleteBtn.onclick = async (e) => {
+    e.stopPropagation();
+    const docSnap = await cloudDb.collection("shared_gallery").doc(id).get();
+    const data = docSnap.exists ? docSnap.data() : {};
+    await removeMedia(id, box, data.path);
+  };
+
+  if (isImage) {
+    const wrapper = document.createElement("div");
+    wrapper.className = "photo-card-img-wrapper";
+
+    const img = document.createElement("img");
+    img.src = url;
+    img.loading = "lazy";
+    img.alt = name || "Nuestro recuerdo";
+    wrapper.appendChild(img);
+    box.appendChild(wrapper);
+
+    const badge = document.createElement("div");
+    badge.className = "photo-badge";
+    badge.innerHTML = "🔍";
+    box.appendChild(badge);
+
+    box.onclick = () => openLightbox(url, false, "Nuestro recuerdo en foto ❤️");
+  } else if (isVideo) {
+    const container = document.createElement("div");
+    container.className = "video-container";
+
+    const video = document.createElement("video");
+    video.src = url;
+    video.controls = true;
+    video.preload = "metadata";
+    container.appendChild(video);
+    box.appendChild(container);
+
+    box.onclick = (e) => {
+      if (e.target && e.target.tagName === "VIDEO") return;
+      openLightbox(url, true, "Nuestro recuerdo en video 🎬");
+    };
+  }
+
+  box.appendChild(deleteBtn);
+  gallery.appendChild(box);
+}
+
+function renderCloudAudioPlayer(url) {
+  const p = document.getElementById("player");
+  const vinyl = document.getElementById("vinylDisc");
+  if (!p) return;
+
+  p.innerHTML = "";
+  const a = document.createElement("audio");
+  a.controls = true;
+  a.style.width = "100%";
+  a.src = url;
+
+  a.onplay = () => { if (vinyl) vinyl.style.animationPlayState = "running"; };
+  a.onpause = () => { if (vinyl) vinyl.style.animationPlayState = "paused"; };
+
+  p.appendChild(a);
+}
+
+function setUploadStatus(message) {
+  let status = document.getElementById("cloudUploadStatus");
+  if (!status) {
+    status = document.createElement("div");
+    status.id = "cloudUploadStatus";
+    status.style.cssText = "font-family:Montserrat,sans-serif;font-size:12px;color:var(--wine);margin-top:8px;text-align:center;";
+    const uploads = document.querySelector(".uploads");
+    if (uploads) uploads.appendChild(status);
+  }
+  status.textContent = message;
+}
+
+/* ---------------- Respaldo local ---------------- */
+function initLocalStorage() {
+  if (!window.indexedDB) return;
+
+  try {
+    const request = indexedDB.open(localDbName, 1);
+    request.onupgradeneeded = (e) => {
+      localDb = e.target.result;
+      if (!localDb.objectStoreNames.contains("media")) {
+        localDb.createObjectStore("media", { keyPath: "id", autoIncrement: true });
+      }
+    };
+    request.onsuccess = (e) => {
+      localDb = e.target.result;
+      loadLocalMedia();
+    };
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+function saveMediaLocal(type, file) {
+  if (!localDb) {
+    alert("El almacenamiento todavía se está preparando. Inténtalo de nuevo en unos segundos.");
+    return;
+  }
+  const tx = localDb.transaction(["media"], "readwrite");
+  const req = tx.objectStore("media").add({ type, file, name: file.name || "" });
+  req.onsuccess = () => renderLocalMediaItem(type, file, req.result);
+}
+
+function loadLocalMedia() {
+  if (!localDb) return;
+  const tx = localDb.transaction(["media"], "readonly");
+  const store = tx.objectStore("media");
+  store.openCursor().onsuccess = (e) => {
+    const cursor = e.target.result;
+    if (!cursor) return;
+
+    if (cursor.value.type === "audio") renderAudioPlayer(cursor.value.file);
+    else renderLocalMediaItem(cursor.value.type, cursor.value.file, cursor.key);
+
+    cursor.continue();
+  };
+}
+
+function removeMediaLocal(id, element) {
+  if (!localDb) return;
+  localDb.transaction(["media"], "readwrite").objectStore("media").delete(id);
+  if (element) element.remove();
+}
+
+function renderLocalMediaItem(type, file, id) {
+  const isImage = type === "image";
+  const gallery = document.getElementById(isImage ? "photoGallery" : "videoGallery");
+  if (!gallery) return;
+
+  const objectUrl = URL.createObjectURL(file);
+  const box = document.createElement("div");
+  box.className = isImage ? "photo-card" : "video-card";
+
+  const deleteBtn = document.createElement("button");
+  deleteBtn.className = "delete-btn";
+  deleteBtn.innerHTML = "×";
+  deleteBtn.onclick = (e) => {
+    e.stopPropagation();
+    removeMediaLocal(id, box);
+  };
+
+  if (isImage) {
+    const wrapper = document.createElement("div");
+    wrapper.className = "photo-card-img-wrapper";
+    const img = document.createElement("img");
+    img.src = objectUrl;
+    img.loading = "lazy";
+    wrapper.appendChild(img);
+    box.appendChild(wrapper);
+
+    const badge = document.createElement("div");
+    badge.className = "photo-badge";
+    badge.innerHTML = "🔍";
+    box.appendChild(badge);
+    box.onclick = () => openLightbox(objectUrl, false, "Nuestro recuerdo en foto ❤️");
+  } else {
+    const container = document.createElement("div");
+    container.className = "video-container";
+    const video = document.createElement("video");
+    video.src = objectUrl;
+    video.controls = true;
+    container.appendChild(video);
+    box.appendChild(container);
+    box.onclick = (e) => {
+      if (e.target && e.target.tagName === "VIDEO") return;
+      openLightbox(objectUrl, true, "Nuestro recuerdo en video 🎬");
+    };
+  }
+
+  box.appendChild(deleteBtn);
+  gallery.appendChild(box);
+}
+
+function renderAudioPlayer(file) {
+  const p = document.getElementById("player");
+  const vinyl = document.getElementById("vinylDisc");
+  if (!p || !file) return;
+
+  p.innerHTML = "";
+  const a = document.createElement("audio");
+  a.controls = true;
+  a.style.width = "100%";
+  a.src = URL.createObjectURL(file);
+  a.onplay = () => { if (vinyl) vinyl.style.animationPlayState = "running"; };
+  a.onpause = () => { if (vinyl) vinyl.style.animationPlayState = "paused"; };
+  p.appendChild(a);
+}
+
+document.getElementById("photos").addEventListener("change", async (e) => {
+  const files = [...(e.target.files || [])];
+  e.target.value = "";
+  for (const file of files) await saveMedia("image", file);
+});
+
+document.getElementById("videos").addEventListener("change", async (e) => {
+  const files = [...(e.target.files || [])];
+  e.target.value = "";
+  for (const file of files) await saveMedia("video", file);
+});
+
+document.getElementById("audio").addEventListener("change", async (e) => {
+  const file = e.target.files && e.target.files[0];
+  e.target.value = "";
+  if (file) await saveMedia("audio", file);
+});
+
+initCloudStorage();
+
+</script>
+</body>
+</html>
